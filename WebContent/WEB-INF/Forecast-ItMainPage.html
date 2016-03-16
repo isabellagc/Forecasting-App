@@ -1,50 +1,101 @@
 
 <!DOCTYPE html> 
 
-<html>
+<html lang="en">
 	<head>
 		<title>Forcast-it!</title>
+
+		<meta charset="utf-8" />
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+  		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+
+  		<link rel="stylesheet" type="text/css" href="Forcast-It.css">
+
 	</head>
 
 	<body>
-		<div id="header">
-			<h1> Forecast-it! </h1>
-		</div>
+		<header class="container">
+    		<div class="row" class="navbar-header">
+      			<h1 class="col-sm-8">Forcast It</h1>
+      			<a id="create" class="btn btn-default" class="text-right" href="Forecast-ItWriteReview.html" role="button">Create Review</a>
+    		</div>
 
-		<div id="filters">
-			<h4> filter by... </h4>
-			Class:
-			<select id="courseOptions"> <!--This is a drop-down box of courses-->
-				<option value="AP Psychology">AP Psychology</option>
-				<option value="AP Computer Science">AP Computer Science</option>
-				<option value="AP Studio Art">AP Studio Art</option>
-			</select>
+    		<a href="Forecast-ItWriteReview.html" onclick="return popitup('Forecast-ItWriteReview.html')"
+			 >Link to popup</a>
 
-			GPA (unweighted):
-			<select id="GPAOptions">
-				<option value="2.0 - 2.5">2.0 - 2.5</option>
-				<option value="2.5 - 3.0">2.5 - 3.0</option>
-				<option value="3.0 - 3.5">3.0 - 3.5</option>
-				<option value="3.5 - 4.0">3.5 - 4.0</option>
-			</select>
+			 <script language="javascript" type="text/javascript">
+			<!--
+			function popitup(url) {
+			 newwindow=window.open(url,'name','height=600,width=600');
+			 if (window.focus) {newwindow.focus()}
+			 return false;
+			}
 
-			Overall Rating:
-			<select id="Rating">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select>
-		</div>
-		<button type="button" id="SubmitButton">Submit</button>
+			// -->
+			</script>
 
-		<div id="reviews">
-			<h3>Reviews<h3>
+  		</header>
 
+  		<section class="container">
+  			<div class="col-md-4" id="filters">
+				<h4> Filters </h4>
+				<p> Class:
+					<select class="form-control" id="courseOptions"> <!--This is a drop-down box of courses-->
+						<option value="AP Psychology"></option>
+						<option value="AP Psychology">AP Psychology</option>
+						<option value="AP Computer Science">AP Computer Science</option>
+						<option value="AP Studio Art">AP Studio Art</option>
+					</select>
+				</p>
+				<p> GPA (unweighted):
+					<select class="form-control" id="GPAOptions">
+						<option value="AP Psychology"></option>
+						<option value="2.0 - 2.5">2.0 - 2.5</option>
+						<option value="2.5 - 3.0">2.5 - 3.0</option>
+						<option value="3.0 - 3.5">3.0 - 3.5</option>
+						<option value="3.5 - 4.0">3.5 - 4.0</option>
+					</select>
+				</p>
+				<p>Overall Rating:
+					<select class="form-control" id="Rating">
+						<option value="AP Psychology"></option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+				<p>
+			
+	      		<input class="btn btn-default" type="submit" value="Submit">
+	    	</div>
 
-		</div>
-
+	    	<div class="col-md-8" id="reviews">
+	    		<h4> Reviews</h4>
+	    		<table class="table">
+	    			<tbody>
+		                <tr>
+		                  <td>AP Computer Science</td>
+		                   	<div class="col-md-4">.col-md-1</div>
+		                </tr>
+		               <tr>
+		                  <td>AP Computer Science</td>
+		                </tr>
+		                <tr>
+		                  <td>AP Computer Science</td>
+		                </tr>
+		                <tr>
+		                  <td>AP Computer Science</td>
+		                </tr>
+		                <tr>
+		                  <td>AP Computer Science</td>
+		                </tr>
+              		</tbody>
+				</table>
+	    	</div>
+		</section>
 	</body>
 
 </html>

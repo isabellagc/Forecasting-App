@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Write a Review</title>
+
+		<meta charset="utf-8" />
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+  		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+
+  		<link rel="stylesheet" type="text/css" href="Forcast-It.css">
+	</head>
+
+	<body>
+		<header class="container">
+			<div class"row" class="navbar-header" class="text-center">
+				<h1 class="col-md-8">Write a Review</h1>
+			</div>
+		</header>
+
+		<section class="container">
+			<div class="col-md-8">
+				<p> Name
+					<input type="text" class="form-control" id="InputName">
+				</p>
+				<p> Class
+					<select class="form-control" id="classOptions">
+						<option value=""></option>
+						<option value="AP Psychology">AP Psychology</option>
+						<option value="AP Computer Science">AP Computer Science</option>
+						<option value="AP Studio Art">AP Studio Art</option>
+					</select>
+				</p>
+				<p>Grade
+					<div  id="Grade">
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox1" value="option1"> 9
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox2" value="option2"> 10
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox3" value="option3"> 11
+						</label>
+						<label class="checkbox-inline">
+						  <input type="checkbox" id="inlineCheckbox3" value="option3"> 12
+						</label>
+					</div>
+				<p>
+				<p>GPA
+					<select class="form-control" id="GPA">
+						<option value=""></option>
+						<option value="2.0-2.5">2.0-2.5</option>
+						<option value="2.5-3.0">2.5-3.0</option>
+						<option value="3.0-3.5">3.0-3.5</option>
+						<option value="3.5-4.0">3.5-4.0</option>
+					</select>
+				<p>
+				<p>Grade in Class
+					<select class="form-control" id="gradeInClass">
+						<option value=""></option>
+						<option value="A">A</option>
+						<option value="B">B</option>
+						<option value="C">C</option>
+						<option value="D">D</option>
+					</select>
+				<p>
+				<p>Difficulty of Class
+					<select class="form-control" id="difficulty">
+						<option value=""></option>
+						<option value="1">1 (easy)</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5 (hard)</option>
+					</select>
+				<p>
+				<p>Hours of Homework (each night)
+					<select class="form-control" id="hours">
+						<option value=""></option>
+						<option value="2.0-2.5">2.0-2.5</option>
+						<option value="2.5-3.0">2.5-3.0</option>
+						<option value="3.0-3.5">3.0-3.5</option>
+						<option value="3.5-4.0">3.5-4.0</option>
+					</select>
+				<p>
+				<p>Overall Ranking
+					<select class="form-control" id="rank">
+						<option value=""></option>
+						<option value="1">1 (worst)</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5 (best)</option>
+					</select>
+				<p>
+				  <div class="checkbox">
+				    <label>
+				      <input type="checkbox"> Take it again?
+				    </label>
+				  </div>
+				</p>
+	      		<input class="btn btn-default" type="submit" value="Submit" href="Forecast-ItMainPage.html">
+
+	      		<a id="create" class="btn btn-default" href="Forecast-ItMainPage.html" role="button">Back</a>
+	    	</div>
+	</body>
+</html>
