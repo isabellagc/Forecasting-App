@@ -1,9 +1,9 @@
-package collegeApp.storage;
+package mainApp.storage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import collegeApp.appData.IAppObject;
+import mainApp.appData.IAppObject;
 
 public class MemoryStorage<T extends IAppObject> implements IStorage<T> {
 

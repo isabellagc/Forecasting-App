@@ -1,9 +1,9 @@
-package collegeApp;
+package mainApp;
 import java.util.UUID;
 
 import javax.persistence.*;
 
-public class CollegeApplicationTask implements collegeApp.appData.IAppObject{
+public class CollegeApplicationTask implements mainApp.appData.IAppObject{
 
 	public static final String TableName = "COLLEGEAPPLICATIONTASKS";
 	

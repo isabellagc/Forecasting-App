@@ -1,8 +1,8 @@
-package collegeApp.storage;
+package mainApp.storage;
 
 import java.util.List;
 
-import collegeApp.appData.IAppObject;
+import mainApp.appData.IAppObject;
 
 public interface IStorage<T extends IAppObject> {
 

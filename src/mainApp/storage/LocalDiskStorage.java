@@ -1,4 +1,4 @@
-package collegeApp.storage;
+package mainApp.storage;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import collegeApp.appData.IAppObject;
+import mainApp.appData.IAppObject;
 
 public class LocalDiskStorage<T extends IAppObject> implements IStorage<T> {
 

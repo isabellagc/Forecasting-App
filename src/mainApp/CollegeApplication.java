@@ -1,9 +1,9 @@
-package collegeApp;
+package mainApp;
 
 import java.io.Serializable;
 import java.util.UUID;
 
-import collegeApp.appData.IAppObject;
+import mainApp.appData.IAppObject;
 
 public class CollegeApplication implements IAppObject, Serializable {
 		

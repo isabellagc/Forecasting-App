@@ -1,8 +1,8 @@
-package collegeApp;
+package mainApp;
 
 import java.util.List;
 
-import collegeApp.storage.IStorage;
+import mainApp.storage.IStorage;
 
 public class HtmlUtil {
 
