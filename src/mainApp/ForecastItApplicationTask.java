@@ -3,17 +3,17 @@ import java.util.UUID;
 
 import javax.persistence.*;
 
-public class CollegeApplicationTask implements mainApp.appData.IAppObject{
+public class ForecastItApplicationTask implements mainApp.appData.IAppObject{
 
 	public static final String TableName = "COLLEGEAPPLICATIONTASKS";
 	
 	// TODO NOT USE
-	public CollegeApplicationTask()
+	public ForecastItApplicationTask()
 	{
 		
 	}
 	
-	public CollegeApplicationTask(long parentId)
+	public ForecastItApplicationTask(long parentId)
 	{
 		this.parentId = parentId;
 		this.id = UUID.randomUUID().getMostSignificantBits();

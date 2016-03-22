@@ -7,12 +7,12 @@ import mainApp.storage.IStorage;
 public class HtmlUtil {
 
 	// Put your CSS URL here
-	private static final String CUSTOM_CSS_URL = "collegeapplicationstyle.css";
-	private static final String CUSTOM_JS_URL = "collegeapplication.js";
+	private static final String CUSTOM_CSS_URL = "ForecastItApplication.css";
+	private static final String CUSTOM_JS_URL = "ForecastItApplication.js";
 
-	private IStorage<CollegeApplication> appStorage;
+	private IStorage<ForecastItApplication> appStorage;
 	
-	public HtmlUtil(IStorage<CollegeApplication> appStorage) {
+	public HtmlUtil(IStorage<ForecastItApplication> appStorage) {
 		this.appStorage = appStorage;
 	}
 	
@@ -22,7 +22,7 @@ public class HtmlUtil {
 	 */
 	public String buildHtmlHead() {
 		return "<head>"
-			+ 	 "<title>HNA College Application Tool</title>"
+			+ 	 "<title>Forecast-It!</title>"
 			+ 	 "<link rel='stylesheet' type='text/css' href='" + CUSTOM_CSS_URL + "'/>"
 			+	 "<script src='" + CUSTOM_JS_URL + "'></script>"
 			+  "</head>";
@@ -38,7 +38,7 @@ public class HtmlUtil {
 			+ 	  "<p class='username'>"
 			+		 "You are logged in as <strong>" + userName + "</strong>"
 			+	  "</p>"
-			+	  "<h1>HNA College Application Tool</h1>"
+			+	  "<h1>Forecast-It Application</h1>"
 			+	"</div>";
 	}
 
@@ -54,9 +54,9 @@ public class HtmlUtil {
 		//		- textbox for due date
 		//		- anything else you want to add
 		return "<div class='application-form content-padding form-inline'>"
-			+	 "<h3>Please enter a new college application</h3>"
+			+	 "<h3>Please enter a new class to review</h3>"
 			+	 "<form action='?action=add' method='post'>"
-			+		"College Name: <input type='text' class='form-control' name='collegeName' id='collegeNameInputBox' />"
+			+		"Class Name: <input type='text' class='form-control' name='className' id='classNameInputBox' />"
 					// Add those things here!
 			+	 "</form>"
 			+	 "<p id='formStatusBox'></p>"

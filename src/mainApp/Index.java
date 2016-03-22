@@ -18,8 +18,8 @@ public class Index extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-	private static IStorage<CollegeApplication> appStorage = 
-			new LocalDiskStorage<CollegeApplication>();
+	private static IStorage<ForecastItApplication> appStorage = 
+			new LocalDiskStorage<ForecastItApplication>();
 	
 	// Uncomment the following 2 lines if you make it to the task portion of
 	// the assignment
@@ -86,7 +86,7 @@ public class Index extends HttpServlet {
 			String collegeName = request.getParameter("collegeName");
 			
 			// Create a new application object and set the college name
-			CollegeApplication newApp = new CollegeApplication();
+			ForecastItApplication newApp = new ForecastItApplication();
 			newApp.setName(collegeName);
 		
 			// Save the application to storage

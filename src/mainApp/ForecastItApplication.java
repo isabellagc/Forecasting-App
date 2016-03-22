@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import mainApp.appData.IAppObject;
 
-public class CollegeApplication implements IAppObject, Serializable {
+public class ForecastItApplication implements IAppObject, Serializable {
 		
 	private static final long serialVersionUID = 6882575160362464416L;
 	
@@ -15,7 +15,7 @@ public class CollegeApplication implements IAppObject, Serializable {
 	protected String name;
 	protected String type; // reach/match/safety
 	
-	public CollegeApplication() {
+	public ForecastItApplication() {
 		this.id = UUID.randomUUID().getMostSignificantBits();
 	}
 	
