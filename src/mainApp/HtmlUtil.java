@@ -60,8 +60,42 @@ public class HtmlUtil {
 					// Add those things here!
 			+	 "</form>"
 			+	 "<p id='formStatusBox'></p>"
-			+  "</div>";
+			+  "</div>"
+			+ "<div id=\"filters\">"
+			+	"<h4> filter by... </h4>"
+			+	"Class:"
+			+	"<select id=\"courseOptions\"> <!--This is a drop-down box of courses-->"
+			+		"<option value=\"AP Psychology\">AP Psychology</option>"
+			+		"<option value=\"AP Computer Science\">AP Computer Science</option>"
+			+		"<option value=\"AP Studio Art\">AP Studio Art</option>"
+			+	"</select>"		
+			+	"GPA (unweighted):"
+			+	"<select id=\"GPAOptions\">"
+			+		"<option value=\"2.0 - 2.5\">2.0 - 2.5</option>"
+			+		"<option value=\"2.5 - 3.0\">2.5 - 3.0</option>"
+			+		"<option value=\"3.0 - 3.5\">3.0 - 3.5</option>"
+			+		"<option value=\"3.5 - 4.0\">3.5 - 4.0</option>"
+			+	"</select>"
+		
+			+	"Overall Rating:"
+			+	"<select id=\"Rating\">"
+			+		"<option value=\"1\">1</option>"
+			+		"<option value=\"2\">2</option>"
+			+		"<option value=\"3\">3</option>"
+			+		"<option value=\"4\">4</option>"
+			+		"<option value=\"5\">5</option>"
+			+	"</select>"
+			+ "</div>"
+			+"<button type=\"button\" id=\"SubmitButton\">Submit</button>"
+		
+			+ "<div id=\"reviews\">"
+			+	"<h3>Reviews<h3>"
+		
+		
+			+ "</div>";
 	}
+	
+
 
 	/**
 	 * Renders out the task form
