@@ -22,7 +22,7 @@ public class HtmlUtil {
 	 */
 	public String buildHtmlHead() {
 		return "<head>"
-			+ 	 "<title>HNA College Application Tool</title>"
+			+ 	 "<title>HNA Forecasting Tool</title>"
 			+ 	 "<link rel='stylesheet' type='text/css' href='" + CUSTOM_CSS_URL + "'/>"
 			+	 "<script src='" + CUSTOM_JS_URL + "'></script>"
 			+  "</head>";
@@ -38,7 +38,7 @@ public class HtmlUtil {
 			+ 	  "<p class='username'>"
 			+		 "You are logged in as <strong>" + userName + "</strong>"
 			+	  "</p>"
-			+	  "<h1>HNA College Application Tool</h1>"
+			+	  "<h1>HNA Forecasting Tool</h1>"
 			+	"</div>";
 	}
 
@@ -48,19 +48,27 @@ public class HtmlUtil {
 	 */
 	public String buildApplicationForm() {
 		// TODO add more functionality to the form to support:
-		//		- textbox for college name (already implemented)
-		//		- dropdown for safety/match/reach
-		//		- checkbox for completed
-		//		- textbox for due date
+		//		- textbox for course name
+		//		- dropdown for homework hours
+		//		- checkbox for retake
+		//		- textbox for comments
 		//		- anything else you want to add
 		return "<div class='application-form content-padding form-inline'>"
-			+	 "<h3>Please enter a new college application</h3>"
-			+	 "<form action='?action=add' method='post'>"
-			+		"College Name: <input type='text' class='form-control' name='collegeName' id='collegeNameInputBox' />"
-					// Add those things here!
-			+	 "</form>"
-			+	 "<p id='formStatusBox'></p>"
-			+  "</div>";
+		+	 "<h3>Please enter a new class review</h3>"
+		+	 "<form action='?action=add' method='post'>"
+		+		"<table><tr><td> Course Name: </td><td> <input type='text' class='form-control' name='courseName' id='courseNameInputBox' </td></tr>"
+		+		"<tr><td> Hours of Homework: </td><td><select class='form-control' name='homeworkHoursInputBox' id='InputhomeworkHours'>"
+		+			"<option value='0'>0</option>"
+		+			"<option value='0.5'>0.5</option>"
+		+			"<option value='1'>1</option>"
+		+			"<option value='1.5'>1.5</option>"
+		+		"</select></td></tr>"
+		+		"<tr><td> Retake: </td><td><input type='checkbox' class='form-control' name='retake' id='InputRetakeChkBox' value='retake'</td></tr>"
+		+		"<tr><td> Comments:</td><td> <input type='text' class='form-control' name='comments' id='commentsInputBox'></td></tr>"
+		+	 "<tr><td><input type='submit' value='Submit'></td></tr>"
+		+	"</form></table>"
+		+	 "<p id='formStatusBox'></p>"
+		+  "</div>";
 	}
 
 	/**
@@ -80,6 +88,14 @@ public class HtmlUtil {
 		// TODO render out all the college applications. To do this you'll need to:
 		//		- get the data from appStorage
 		//		- loop through the data, render out html: see CollegeApplication.toHTMLElement()
-		return "";
+		List<CollegeApplication> apps = this.appStorage.read();
+		String appString = "";
+		
+		for (int i = 0; i < apps.size(); i++)
+		{
+			appString += apps.get(i).toHTMLElement() + " ";
+		}
+		
+		return appString;
 	}
 }

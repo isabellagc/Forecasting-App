@@ -1,4 +1,4 @@
-package collegeApp;
+package mainApp;
 
 import java.io.IOException;
 
@@ -7,7 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import collegeApp.storage.*;
+
+import mainApp.storage.*;
 
 /**
  * Servlet implementation class Index
@@ -17,8 +18,8 @@ public class Index extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-	private static IStorage<CollegeApplication> appStorage = 
-			new LocalDiskStorage<CollegeApplication>();
+	private static IStorage<ForecastItApplication> appStorage = 
+			new LocalDiskStorage<ForecastItApplication>();
 	
 	// Uncomment the following 2 lines if you make it to the task portion of
 	// the assignment
@@ -53,7 +54,7 @@ public class Index extends HttpServlet {
 
 		// Include the header. This is the content we'll put at the top of the
 		// page
-		responseHtml += htmlUtil.buildBodyHeader("Holly N. Academy");
+		responseHtml += htmlUtil.buildBodyHeader("Jane Doe");
 
 		// *********************************************************************
 		// TODO render out the college application form
@@ -78,21 +79,15 @@ public class Index extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-String actionType = request.getParameter("action");
+		String actionType = request.getParameter("action");
 		
 		if("add".equals(actionType)) {
 			// Get the college name from the request
-			String courseName = request.getParameter("courseName");
-			String homeworkHours = request.getParameter("homeworkHoursInputBox");
-			boolean wouldRetake =  "retake".equals(request.getParameter("retake"));;
-			String comments = request.getParameter("comments");
+			String collegeName = request.getParameter("collegeName");
 			
 			// Create a new application object and set the college name
-			CollegeApplication newApp = new CollegeApplication();
-			newApp.setName(courseName);
-			newApp.setType(homeworkHours);
-			newApp.setRetake(wouldRetake);
-			newApp.setComments(comments);
+			ForecastItApplication newApp = new ForecastItApplication();
+			newApp.setName(collegeName);
 		
 			// Save the application to storage
 			appStorage.create(newApp);
