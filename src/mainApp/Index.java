@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import mainApp.ForecastItApplication;
 import mainApp.storage.*;
 
 /**
@@ -77,24 +78,35 @@ public class Index extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		String actionType = request.getParameter("action");
-		
-		if("add".equals(actionType)) {
+
+		if ("add".equals(actionType)) {
 			// Get the college name from the request
-			String collegeName = request.getParameter("collegeName");
-			
+			String courseName = request.getParameter("courseName");
+			String homeworkHours = request.getParameter("homeworkHoursInputBox");
+			boolean wouldRetake = "retake".equals(request.getParameter("retake"));
+			;
+			String comments = request.getParameter("comments");
+
 			// Create a new application object and set the college name
 			ForecastItApplication newApp = new ForecastItApplication();
-			newApp.setName(collegeName);
-		
+			newApp.setName(courseName);
+			newApp.setType(homeworkHours);
+			newApp.setRetake(wouldRetake);
+			newApp.setComments(comments);
+
 			// Save the application to storage
 			appStorage.create(newApp);
-		} else if("remove".equals(actionType)) {
-			// Delete the existing application
-			String idToDelete = request.getParameter("id");
 		}
+//		else if ("remove".equals(actionType)) {
+//			// Delete the existing application
+//			String idToDelete = request.getParameter("id");
+//		}
+
+		//TO DO: FIX ABOVE TO DELETE 
 		
 		// Redirect back to the "homepage" (the GET method)
 		response.sendRedirect("");

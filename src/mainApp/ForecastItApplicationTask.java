@@ -1,7 +1,7 @@
 package mainApp;
 import java.util.UUID;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 
 public class ForecastItApplicationTask implements mainApp.appData.IAppObject{
 

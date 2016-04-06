@@ -13,7 +13,9 @@ public class ForecastItApplication implements IAppObject, Serializable {
 	
 	protected Long id;
 	protected String name;
-	protected String type; // reach/match/safety
+	protected String hours; 
+	protected String comments; 
+	protected boolean retake;
 	
 	public ForecastItApplication() {
 		this.id = UUID.randomUUID().getMostSignificantBits();
@@ -25,8 +27,21 @@ public class ForecastItApplication implements IAppObject, Serializable {
 	public String getName() { return this.name; }
 	public void setName(String name) { this.name = name; }
 	
+	public String getHours() { return this.hours; }
+	public void setType(String time) { this.hours = time; }
+	
+	public String getComments() { return this.comments; }
+	public void setComments(String words) { this.comments = words; }
+	
+	public boolean getRetake() { return this.retake; }
+	public void setRetake(boolean value) { this.retake = value; }
+	
+
 	public String toHTMLElement() {
 		// TODO fill out this method to include all the relevant information
-		return "<h4>" + this.name + "</h4>";
+		return "<h3>" + this.name + "</h3>"
+				+ "<h4> Hours: " + this.hours + "<br>Retake: " + this.retake + "<br>Comments: " + this.comments + "</h4>";
 	}
+
+
 }
