@@ -119,9 +119,41 @@ public class Index extends HttpServlet {
 	
 	private void renderFilter(PrintWriter writer, HttpServletRequest request)
 	{
-		double hoursFilter = request.getParameter(hours);
+		String courseNameFilter = request.getParameter("courseName");
+		String homeworkHoursFilter = request.getParameter("homeworkHoursInputBox");
+		boolean retakeFilter = "retake".equals(request.getParameter("retake"));
 		
 		
-	}
+		
+		for(Game game : soccerGames)
+		{
+			if(courseNameFilter !=null)
+			{
+			if(game.getName().compareToIgnoreCase(courseNameFilter) == 0)
+				{
+					writer.append(game.toHTMLElement());
+				}
+			}
+				
+				
+			else if(homeworkHoursFilter != null)
+			{
+				if(game.getHours().compareToIgnoreCase(homeworkHoursFilter) == 0)
+					{
+						writer.append(game.toHTMLElement());
+					}
+			}
+			
+			else if(retakeFilter != false)
+				{
+					writer.append(game.toHTMLElement());
+				}
+			
+			else
+				{
+					writer.append(game.toHTMLElement());
+				}
+			
+			}
 
 }
