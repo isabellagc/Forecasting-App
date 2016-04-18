@@ -13,7 +13,7 @@ public class ForecastItApplication implements IAppObject, Serializable {
 	
 	protected Long id;
 	protected String name;
-	protected String hours; 
+	protected double hours; 
 	protected String comments; 
 	protected boolean retake;
 	
@@ -27,8 +27,8 @@ public class ForecastItApplication implements IAppObject, Serializable {
 	public String getName() { return this.name; }
 	public void setName(String name) { this.name = name; }
 	
-	public String getHours() { return this.hours; }
-	public void setType(String time) { this.hours = time; }
+	public double getHours() { return this.hours; }
+	public void setType(double time) { this.hours = time; }
 	
 	public String getComments() { return this.comments; }
 	public void setComments(String words) { this.comments = words; }

@@ -40,6 +40,8 @@ public class Index extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String responseHtml = "";
+		
+		PrintWriter writer = response.getWriter();
 
 		// Open up the HTML document with correct identifier
 		responseHtml += "<!DOCTYPE html><html>";
@@ -66,6 +68,8 @@ public class Index extends HttpServlet {
 		
 		// TODO If you have time,render out the tasks for each application
 		// *********************************************************************
+		
+		this.renderFilter(writer, request);
 
 		// Don't forget to close all the tags that were opened!
 		responseHtml += "</body></html>";
@@ -73,6 +77,7 @@ public class Index extends HttpServlet {
 		// Finally, let's write out the entire html string we've built to the
 		// body of the http response
 		response.getWriter().println(responseHtml);
+		
 	}
 
 	/**
@@ -110,6 +115,13 @@ public class Index extends HttpServlet {
 		
 		// Redirect back to the "homepage" (the GET method)
 		response.sendRedirect("");
+	}
+	
+	private void renderFilter(PrintWriter writer, HttpServletRequest request)
+	{
+		double hoursFilter = request.getParameter(hours);
+		
+		
 	}
 
 }
