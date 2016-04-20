@@ -92,15 +92,14 @@ public class Index extends HttpServlet {
 		if ("add".equals(actionType)) {
 			// Get the college name from the request
 			String courseName = request.getParameter("courseName");
-			double homeworkHours = Double.parseDouble(request.getParameter("homeworkHoursInputBox"));
+			String homeworkHours = request.getParameter("homeworkHoursInputBox");
 			boolean wouldRetake = "retake".equals(request.getParameter("retake"));
-			;
 			String comments = request.getParameter("comments");
 
 			// Create a new application object and set the college name
 			ForecastItApplication newApp = new ForecastItApplication();
 			newApp.setName(courseName);
-			newApp.setType(homeworkHours);
+			newApp.setHours(homeworkHours);
 			newApp.setRetake(wouldRetake);
 			newApp.setComments(comments);
 
@@ -121,7 +120,7 @@ public class Index extends HttpServlet {
 	private void renderFilter(PrintWriter writer, HttpServletRequest request)
 	{
 		String courseNameFilter = request.getParameter("courseName");
-		double homeworkHoursFilter = Double.parseDouble(request.getParameter("homeworkHoursInputBox"));
+		String homeworkHoursFilter = request.getParameter("homeworkHoursInputBox");
 		boolean retakeFilter = "retake".equals(request.getParameter("retake"));
 		
 		
@@ -137,9 +136,9 @@ public class Index extends HttpServlet {
 			}
 				
 			//TO DO fix the 0 issue (can't check if a double value "is null" because not a reference type, primitive	
-			else if(homeworkHoursFilter != 0)
+			else if(homeworkHoursFilter != null)
 			{
-				if(app.getHours() == (homeworkHoursFilter))
+				if(app.getHours().compareToIgnoreCase((homeworkHoursFilter)) == 0)
 					{
 						writer.append(app.toHTMLElement());
 					}
