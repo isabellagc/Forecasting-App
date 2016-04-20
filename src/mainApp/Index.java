@@ -1,6 +1,7 @@
 package mainApp;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -91,7 +92,7 @@ public class Index extends HttpServlet {
 		if ("add".equals(actionType)) {
 			// Get the college name from the request
 			String courseName = request.getParameter("courseName");
-			String homeworkHours = request.getParameter("homeworkHoursInputBox");
+			double homeworkHours = Double.parseDouble(request.getParameter("homeworkHoursInputBox"));
 			boolean wouldRetake = "retake".equals(request.getParameter("retake"));
 			;
 			String comments = request.getParameter("comments");
@@ -120,40 +121,40 @@ public class Index extends HttpServlet {
 	private void renderFilter(PrintWriter writer, HttpServletRequest request)
 	{
 		String courseNameFilter = request.getParameter("courseName");
-		String homeworkHoursFilter = request.getParameter("homeworkHoursInputBox");
+		double homeworkHoursFilter = Double.parseDouble(request.getParameter("homeworkHoursInputBox"));
 		boolean retakeFilter = "retake".equals(request.getParameter("retake"));
 		
 		
 		
-		for(Game game : soccerGames)
+		for(ForecastItApplication app : appStorage.read())
 		{
 			if(courseNameFilter !=null)
 			{
-			if(game.getName().compareToIgnoreCase(courseNameFilter) == 0)
-				{
-					writer.append(game.toHTMLElement());
-				}
+				if(app.getName().compareToIgnoreCase(courseNameFilter) == 0)
+					{
+						writer.append(app.toHTMLElement());
+					}
 			}
 				
-				
-			else if(homeworkHoursFilter != null)
+			//TO DO fix the 0 issue (can't check if a double value "is null" because not a reference type, primitive	
+			else if(homeworkHoursFilter != 0)
 			{
-				if(game.getHours().compareToIgnoreCase(homeworkHoursFilter) == 0)
+				if(app.getHours() == (homeworkHoursFilter))
 					{
-						writer.append(game.toHTMLElement());
+						writer.append(app.toHTMLElement());
 					}
 			}
 			
 			else if(retakeFilter != false)
 				{
-					writer.append(game.toHTMLElement());
+					writer.append(app.toHTMLElement());
 				}
 			
 			else
 				{
-					writer.append(game.toHTMLElement());
+					writer.append(app.toHTMLElement());
 				}
 			
 			}
-
+	}
 }
