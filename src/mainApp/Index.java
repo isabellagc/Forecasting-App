@@ -70,7 +70,7 @@ public class Index extends HttpServlet {
 		// TODO If you have time,render out the tasks for each application
 		// *********************************************************************
 		
-		this.renderFilter(writer, request);
+		responseHtml = this.renderFilter(responseHtml, request);
 
 		// Don't forget to close all the tags that were opened!
 		responseHtml += "</body></html>";
@@ -115,13 +115,13 @@ public class Index extends HttpServlet {
 		//TO DO: FIX ABOVE TO DELETE 
 		
 		// Redirect back to the "homepage" (the GET method)
-		response.sendRedirect("");
+		response.sendRedirect("/Forcasting-Application/index.html");
 	}
 	
-	private void renderFilter(PrintWriter writer, HttpServletRequest request)
+	private String renderFilter(String writer, HttpServletRequest request)
 	{
 		String courseNameFilter = request.getParameter("courseName");
-		double homeworkHoursFilter = Double.parseDouble(request.getParameter("homeworkHoursInputBox"));
+		//double homeworkHoursFilter = Double.parseDouble(request.getParameter("homeworkHoursInputBox"));
 		boolean retakeFilter = "retake".equals(request.getParameter("retake"));
 		
 		
@@ -132,29 +132,30 @@ public class Index extends HttpServlet {
 			{
 				if(app.getName().compareToIgnoreCase(courseNameFilter) == 0)
 					{
-						writer.append(app.toHTMLElement());
+						writer += app.toHTMLElement();
 					}
 			}
 				
 			//TO DO fix the 0 issue (can't check if a double value "is null" because not a reference type, primitive	
-			else if(homeworkHoursFilter != 0)
+			/**else if(homeworkHoursFilter != 0)
 			{
 				if(app.getHours() == (homeworkHoursFilter))
 					{
 						writer.append(app.toHTMLElement());
 					}
-			}
+			} */
 			
 			else if(retakeFilter != false)
 				{
-					writer.append(app.toHTMLElement());
+					writer += app.toHTMLElement();
 				}
 			
 			else
 				{
-					writer.append(app.toHTMLElement());
+					writer += app.toHTMLElement();
 				}
 			
 			}
+		return writer;
 	}
 }

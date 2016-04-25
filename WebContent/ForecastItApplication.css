@@ -1,4 +1,56 @@
 
-body {background-image: url(background.jpg);}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+
+#filters{
+	background: #F0F8FF;
+	padding: 20px;
+	height: 400px;
+	width: 250px;
+	
+}
+
+#reviews{
+	padding: 20px;
+	
+}
+
+#create{
+	
+	margin: 20px;
+}
+
+.form-group{
+	width:auto;
+	margin-bottom:15px !important;
+}
+
+.col-md-8{
+	width: 100%
+}
+
+#title{
+	color: #2e68a9;
+}
+
+@media (min-width 768x)
+	.form-inline .form-group {
+	display: block;
+	margin-bottom: 15px;
+	}
+	
+
+input.form-control,textarea.form-control,select.form-control{
+	display: block !important;
+	width: 75% !important;
+}
+
+#reviewtext{
+	font-family: 'Roboto', sans-serif;
+}
 
 
