@@ -120,11 +120,7 @@ public class Index extends HttpServlet {
 	private String renderFilter(String writer, HttpServletRequest request)
 	{
 		String courseNameFilter = request.getParameter("courseName");
-<<<<<<< HEAD
-		//double homeworkHoursFilter = Double.parseDouble(request.getParameter("homeworkHoursInputBox"));
-=======
 		String homeworkHoursFilter = request.getParameter("homeworkHoursInputBox");
->>>>>>> 098ee8e2df174863b5edc72813f00da6dcd5c46c
 		boolean retakeFilter = "retake".equals(request.getParameter("retake"));
 		
 		
@@ -140,17 +136,14 @@ public class Index extends HttpServlet {
 			}
 				
 			//TO DO fix the 0 issue (can't check if a double value "is null" because not a reference type, primitive	
-<<<<<<< HEAD
-			/**else if(homeworkHoursFilter != 0)
-=======
 			else if(homeworkHoursFilter != null)
->>>>>>> 098ee8e2df174863b5edc72813f00da6dcd5c46c
+
 			{
 				if(app.getHours().compareToIgnoreCase((homeworkHoursFilter)) == 0)
 					{
-						writer.append(app.toHTMLElement());
+						writer += app.toHTMLElement();
 					}
-			} */
+			} 
 			
 			else if(retakeFilter != false)
 				{
