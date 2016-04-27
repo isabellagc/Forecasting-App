@@ -150,10 +150,10 @@ public class Index extends HttpServlet {
 					writer += app.toHTMLElement();
 				}
 			
-			else
-				{
-					writer += app.toHTMLElement();
-				}
+//			else
+//				{
+//					writer += app.toHTMLElement();
+//				}
 			
 			}
 		return writer;
