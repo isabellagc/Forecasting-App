@@ -38,7 +38,6 @@ public class ForecastItApplication implements IAppObject, Serializable {
 	
 
 	public String toHTMLElement() {
-		// TODO fill out this method to include all the relevant information
 		return "<div class='col-md-8'>"
 				+ "<pre id='reviewtext'>"
 				+ "<h3>" + this.name + "</h3>"

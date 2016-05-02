@@ -24,10 +24,6 @@ public class Index extends HttpServlet {
 	private static IStorage<ForecastItApplication> appStorage = 
 			new LocalDiskStorage<ForecastItApplication>();
 	
-	// Uncomment the following 2 lines if you make it to the task portion of
-	// the assignment
-//	private static IStorage<CollegeApplicationTask> appTaskStorage = 
-//			new LocalDiskStorage<CollegeApplicationTask>();
 	
 	private HtmlUtil htmlUtil;
 
@@ -62,7 +58,7 @@ public class Index extends HttpServlet {
 		responseHtml += htmlUtil.buildBodyHeader("Jane Doe");
 
 		// *********************************************************************
-		// render the college application form
+		// render the application form
 		responseHtml += htmlUtil.buildApplicationForm();
 				
 		// render all the applications, or all that match filter if specified
@@ -80,16 +76,8 @@ public class Index extends HttpServlet {
 		}
 		responseHtml += htmlUtil.buildCollegeApplicationList(filter, filterCourseName);
 		
-		// TODO If you have time,render out the tasks for each application
-		// *********************************************************************
-		
-		//responseHtml = this.renderFilter(responseHtml, request);
-
-		// Don't forget to close all the tags that were opened!
 		responseHtml += "</body></html>";
 
-		// Finally, let's write out the entire html string we've built to the
-		// body of the http response
 		response.getWriter().println(responseHtml);
 		
 	}
@@ -109,7 +97,7 @@ public class Index extends HttpServlet {
 			boolean wouldRetake = "retake".equals(request.getParameter("retake"));
 			String comments = request.getParameter("comments");
 
-			// Create a new application object and set the college name
+			// Create a new application object and set the info
 			ForecastItApplication newApp = new ForecastItApplication();
 			newApp.setName(courseName);
 			newApp.setHours(homeworkHours);
@@ -154,7 +142,7 @@ public class Index extends HttpServlet {
 	}
 	
 	private String renderFilter(String writer, HttpServletRequest request)
-	{	//these should be from the user input box that filters (change parameter names)
+	{
 		String courseNameFilter = request.getParameter("courseName");
 		String homeworkHoursFilter = request.getParameter("homeworkHoursInputBox");
 		boolean retakeFilter = "retake".equals(request.getParameter("retake"));
@@ -185,11 +173,6 @@ public class Index extends HttpServlet {
 				{
 					writer += app.toHTMLElement();
 				}
-			
-//			else
-//				{
-//					writer += app.toHTMLElement();
-//				}
 			
 			}
 		return writer;

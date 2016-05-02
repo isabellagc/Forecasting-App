@@ -1,13 +1,12 @@
 package mainApp;
 import java.util.UUID;
 
-//import javax.persistence.*;
 
 public class ForecastItApplicationTask implements mainApp.appData.IAppObject{
 
 	public static final String TableName = "COLLEGEAPPLICATIONTASKS";
 	
-	// TODO NOT USE
+
 	public ForecastItApplicationTask()
 	{
 		
