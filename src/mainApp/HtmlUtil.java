@@ -130,8 +130,20 @@ public class HtmlUtil {
 				+  				"<input class='btn btn-default' type='submit' value='Submit'>"
 				+ 			"</div>"
 				+		"</form>"
-
-				+	"</div>"
+				+		"</div>"
+				+		"<h3 class='col-md-8' >Filter Reviews</h3>"
+				+	"<div class='application-form content-padding form-inline'>"	
+				+	"<form action='?action=filter' method='post'>"
+				+				"<div class='form-group col-md-8'>"
+				+ 					"<label>Course Name</label>"
+				+  					"<input type='text' class='form-control' name='filterCourseName' id='filterCourseNameInputBox'>"
+				+	 			"</div>"
+				+				"<p id='formStatusBox'></p>"
+				+				"<div class='form-group col-md-8'>"
+				+  					"<input class='btn btn-default' type='submit' value='Filter'>"
+				+ 				"</div>"
+				+	"</form>"
+				+"</div>"
 				  
 				 /**
 				+		"<table class='table'>"
@@ -189,18 +201,40 @@ public class HtmlUtil {
 	 * Renders out the list of college applications
 	 * @return the college applications
 	 */
-	public String buildCollegeApplicationList() {		
+	public String buildCollegeApplicationList(String filter, String filterCourseName) {		
 		// TODO render out all the college applications. To do this you'll need to:
 		//		- get the data from appStorage
 		//		- loop through the data, render out html: see CollegeApplication.toHTMLElement()
 		List<ForecastItApplication> apps = this.appStorage.read();
 		String appString = "";
 		
-		for (int i = 0; i < apps.size(); i++)
+		if (filter.equals("false"))
 		{
-			appString += apps.get(i).toHTMLElement() + " ";
+			// put following in method buildFullCollegeApplicationList
+			for (int i = 0; i < apps.size(); i++)
+			{
+				appString += apps.get(i).toHTMLElement() + " ";
+			}			
+		}
+		else
+		{
+			
+			// put this in method renderFilter
+			// copy the logic from renderFilter
+			for(ForecastItApplication app : appStorage.read())
+			{
+				if(!filterCourseName.isEmpty())
+				{
+					if(app.getName().compareToIgnoreCase(filterCourseName) == 0)
+						{
+							appString += app.toHTMLElement();
+						}
+				}
+					
+			}
 		}
 		
 		return appString;
 	}
+	
 }

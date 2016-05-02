@@ -2,6 +2,7 @@ package mainApp;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -61,16 +62,28 @@ public class Index extends HttpServlet {
 		responseHtml += htmlUtil.buildBodyHeader("Jane Doe");
 
 		// *********************************************************************
-		// TODO render out the college application form
+		// render the college application form
 		responseHtml += htmlUtil.buildApplicationForm();
 				
-		// TODO render out all the applications
-		responseHtml += htmlUtil.buildCollegeApplicationList();
+		// render all the applications, or all that match filter if specified
+		String filterCourseName = "";
+
+		String filter = request.getParameter("filter");
+		if (filter == null)
+		{
+			filter = "false";
+		}
+
+		if (filter.equals("true"))
+		{
+			filterCourseName = request.getParameter("filterCourseName");		
+		}
+		responseHtml += htmlUtil.buildCollegeApplicationList(filter, filterCourseName);
 		
 		// TODO If you have time,render out the tasks for each application
 		// *********************************************************************
 		
-		responseHtml = this.renderFilter(responseHtml, request);
+		//responseHtml = this.renderFilter(responseHtml, request);
 
 		// Don't forget to close all the tags that were opened!
 		responseHtml += "</body></html>";
@@ -90,7 +103,7 @@ public class Index extends HttpServlet {
 		String actionType = request.getParameter("action");
 
 		if ("add".equals(actionType)) {
-			// Get the college name from the request
+			// Get the course name from the request
 			String courseName = request.getParameter("courseName");
 			String homeworkHours = request.getParameter("homeworkHoursInputBox");
 			boolean wouldRetake = "retake".equals(request.getParameter("retake"));
@@ -105,7 +118,30 @@ public class Index extends HttpServlet {
 
 			// Save the application to storage
 			appStorage.create(newApp);
+			
+			response.sendRedirect("/Forcasting-Application/index.html");
 		}
+		
+		else if ("filter".equals(actionType))
+		{
+			// Build the filter parameters
+			String filterCourseName = request.getParameter("filterCourseName");
+			
+			String filter="";
+			if (!filterCourseName.isEmpty())
+			{
+				filter += "&filterCourseName=" + URLEncoder.encode(filterCourseName, "UTF-8");
+			}
+			
+			
+			if (!filter.isEmpty())
+			{
+				response.sendRedirect("/Forcasting-Application/index.html?filter=true" + filter);				
+			}
+			else
+				response.sendRedirect("/Forcasting-Application/index.html");
+		}
+		else {} 
 //		else if ("remove".equals(actionType)) {
 //			// Delete the existing application
 //			String idToDelete = request.getParameter("id");
@@ -114,11 +150,11 @@ public class Index extends HttpServlet {
 		//TO DO: FIX ABOVE TO DELETE 
 		
 		// Redirect back to the "homepage" (the GET method)
-		response.sendRedirect("/Forcasting-Application/index.html");
+
 	}
 	
 	private String renderFilter(String writer, HttpServletRequest request)
-	{
+	{	//these should be from the user input box that filters (change parameter names)
 		String courseNameFilter = request.getParameter("courseName");
 		String homeworkHoursFilter = request.getParameter("homeworkHoursInputBox");
 		boolean retakeFilter = "retake".equals(request.getParameter("retake"));
