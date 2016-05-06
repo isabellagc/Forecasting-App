@@ -14,3 +14,8 @@ function updateStatus(){
 		document.getElementById('formStatusBox').innerHTML = '';
 	}
 };
+
+function popup(){
+	alert("Thank you for submitting a review!");
+}
+

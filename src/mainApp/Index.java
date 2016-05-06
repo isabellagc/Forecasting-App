@@ -130,25 +130,13 @@ public class Index extends HttpServlet {
 				response.sendRedirect("/Forcasting-Application/index.html");
 		}
 		else {} 
-//		else if ("remove".equals(actionType)) {
-//			// Delete the existing application
-//			String idToDelete = request.getParameter("id");
-//		}
-
-		//TO DO: FIX ABOVE TO DELETE 
 		
-		// Redirect back to the "homepage" (the GET method)
-
 	}
 	
 	private String renderFilter(String writer, HttpServletRequest request)
 	{
 		String courseNameFilter = request.getParameter("courseName");
-		String homeworkHoursFilter = request.getParameter("homeworkHoursInputBox");
-		boolean retakeFilter = "retake".equals(request.getParameter("retake"));
-		
-		
-		
+				
 		for(ForecastItApplication app : appStorage.read())
 		{
 			if(courseNameFilter !=null)
@@ -158,23 +146,8 @@ public class Index extends HttpServlet {
 						writer += app.toHTMLElement();
 					}
 			}
-				
-			//TO DO fix the 0 issue (can't check if a double value "is null" because not a reference type, primitive	
-			else if(homeworkHoursFilter != null)
-
-			{
-				if(app.getHours().compareToIgnoreCase((homeworkHoursFilter)) == 0)
-					{
-						writer += app.toHTMLElement();
-					}
-			} 
 			
-			else if(retakeFilter != false)
-				{
-					writer += app.toHTMLElement();
-				}
-			
-			}
+		 }
 		return writer;
 	}
 }

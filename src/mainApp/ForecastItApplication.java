@@ -41,7 +41,7 @@ public class ForecastItApplication implements IAppObject, Serializable {
 		return "<div class='col-md-8'>"
 				+ "<pre id='reviewtext'>"
 				+ "<h3>" + this.name + "</h3>"
-				+ "<h4>Hours: " + this.hours + "<br>Retake: " + this.retake + "<br>Comments: " + this.comments + "</h4>"
+				+ "<h4>Hours of Homework: " + this.hours + "<br>Retake: " + this.retake + "<br>Comments: " + this.comments + "</h4>"
 		  		+ "</pre>"
 				+ "</div>";
 	}

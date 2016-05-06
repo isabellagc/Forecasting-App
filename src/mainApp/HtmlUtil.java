@@ -93,13 +93,13 @@ public class HtmlUtil {
 				+ 			"</div>"
 				+			 "<p id='formStatusBox'></p>"
 				+			"<div class='form-group col-md-8'>"
-				+  				"<input class='btn btn-default' type='submit' value='Submit'>"
+				+           "<input class='btn btn-default' type='submit' onclick='popup()' value='Submit''>"
 				+ 			"</div>"
 				+		"</form>"
 				+		"</div>"
 				+		"<h3 class='col-md-8' >Filter Reviews</h3>"
 				+	"<div class='application-form content-padding form-inline'>"	
-				+	"<form action='?action=filter' method='post'>"
+				+	"<form action='?action=filter' method='post' >"
 				+				"<div class='form-group col-md-8'>"
 				+ 					"<label>Course Name</label>"
 				+  					"<input type='text' class='form-control' name='filterCourseName' id='filterCourseNameInputBox'>"
@@ -121,7 +121,6 @@ public class HtmlUtil {
 	 * @return the task form
 	 */
 	public String buildTaskForm(String username, String schoolName) {
-		// TODO create the task form if you have time
 		return "";
 	}
 
