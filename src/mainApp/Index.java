@@ -39,7 +39,7 @@ public class Index extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String responseHtml = "";
 		
-		PrintWriter writer = response.getWriter();
+		//PrintWriter writer = response.getWriter();
 
 		// Open up the HTML document with correct identifier
 		responseHtml += "<!DOCTYPE html><html>";
@@ -55,7 +55,7 @@ public class Index extends HttpServlet {
 
 		// Include the header. This is the content we'll put at the top of the
 		// page
-		responseHtml += htmlUtil.buildBodyHeader("Jane Doe");
+		responseHtml += htmlUtil.buildBodyHeader();
 
 		// *********************************************************************
 		// render the application form
@@ -74,7 +74,7 @@ public class Index extends HttpServlet {
 		{
 			filterCourseName = request.getParameter("filterCourseName");		
 		}
-		responseHtml += htmlUtil.buildCollegeApplicationList(filter, filterCourseName);
+		responseHtml += htmlUtil.buildCourseList(filter, filterCourseName);
 		
 		responseHtml += "</body></html>";
 
@@ -132,22 +132,23 @@ public class Index extends HttpServlet {
 		else {} 
 		
 	}
-	
-	private String renderFilter(String writer, HttpServletRequest request)
-	{
-		String courseNameFilter = request.getParameter("courseName");
-				
-		for(ForecastItApplication app : appStorage.read())
-		{
-			if(courseNameFilter !=null)
-			{
-				if(app.getName().compareToIgnoreCase(courseNameFilter) == 0)
-					{
-						writer += app.toHTMLElement();
-					}
-			}
-			
-		 }
-		return writer;
-	}
-}
+
+// not currently in use
+//	private String renderFilter(String writer, HttpServletRequest request)
+//	{
+//		String courseNameFilter = request.getParameter("courseName");
+//				
+//		for(ForecastItApplication app : appStorage.read())
+//		{
+//			if(courseNameFilter !=null)
+//			{
+//				if(app.getName().compareToIgnoreCase(courseNameFilter) == 0)
+//					{
+//						writer += app.toHTMLElement();
+//					}
+//			}
+//			
+//		 }
+//		return writer;
+//	}
+  }

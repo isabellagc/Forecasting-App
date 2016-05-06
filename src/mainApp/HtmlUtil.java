@@ -38,15 +38,11 @@ public class HtmlUtil {
 	}
 
 	/**
-	 * Renders out the header of the body. This is
-	 * @param userName
+	 * Renders out the header of the body.
 	 * @return the header html
 	 */
-	public String buildBodyHeader(String userName) {
+	public String buildBodyHeader() {
 		return /**"<div class='header'>"
-			 	  "<p class='username'>"
-			+		 "You are logged in as <strong>" + userName + "</strong>"
-			+	  "</p>"
 			+	  "<h1 class='col-md-8'>HNA Forecasting Tool</h1>"
 			+	"</div>";*/
 		
@@ -58,8 +54,8 @@ public class HtmlUtil {
 	}
 
 	/**
-	 * Renders out the application form
-	 * @return the application form
+	 * Renders out the course add and filter form
+	 * @return the course form
 	 */
 	
 	public String buildApplicationForm() {
@@ -90,8 +86,8 @@ public class HtmlUtil {
 				+			"<div class='form-group col-md-8'>"
 				+ 				"<label>Comments</label>"
 				+  				"<textarea class='form-control' rows='3' name='comments' id='commentsInputBox'></textarea>"
-				+ 			"</div>"
 				+			 "<p id='formStatusBox'></p>"
+				+ 			"</div>"
 				+			"<div class='form-group col-md-8'>"
 				+           "<input class='btn btn-default' type='submit' onclick='popup()' value='Submit''>"
 				+ 			"</div>"
@@ -125,10 +121,10 @@ public class HtmlUtil {
 	}
 
 	/**
-	 * Renders out the list of college applications
+	 * Renders out the list of courses
 	 * @return the college applications
 	 */
-	public String buildCollegeApplicationList(String filter, String filterCourseName) {		
+	public String buildCourseList(String filter, String filterCourseName) {		
 		List<ForecastItApplication> apps = this.appStorage.read();
 		String appString = "";
 		
